@@ -1,0 +1,457 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   LIGHT THEME (Default)
+   ============================================ */
+:root,
+body[data-theme="light"] {
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+  --secondary: #06b6d4;
+  --secondary-light: #22d3ee;
+  --accent: #8b5cf6;
+  --success: #10b981;
+  --error: #ef4444;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-elevated: #ffffff;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+  
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  
+  --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+body[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --secondary: #22d3ee;
+  --secondary-light: #67e8f9;
+  --accent: #a78bfa;
+  --success: #34d399;
+  --error: #f87171;
+  
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-elevated: #1e293b;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-light: #334155;
+  --border-medium: #475569;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+  
+  --gradient-primary: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
+  --gradient-accent: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+}
+
+
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn span {
+  font-size: 1.25rem;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  background: rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+body[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(129, 140, 248, 0.15);
+}
+
+body[data-theme="ai"] .btn-secondary:hover {
+  background: rgba(6, 182, 212, 0.15);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.875rem;
+  }
+}
+
+/* ---------- Global Animations ---------- */
+
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.slide-left {
+  animation: slideLeft 0.9s ease forwards;
+  opacity: 0;
+}
+
+.pop-in {
+  animation: popIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+/* Keyframes */
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---- Hero badge: entrance + typewriter ---- */
+
+.badge-animate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: badgeFadeUp 0.9s ease forwards;
+  animation-delay: 0.25s;
+}
+
+/* badge fade-in */
+@keyframes badgeFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* waving hand */
+.wave {
+  display: inline-block;
+  animation: waveMotion 1.6s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveMotion {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(18deg); }
+  30%  { transform: rotate(-12deg); }
+  45%  { transform: rotate(16deg); }
+  60%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* typewriter text inside the badge – NO blinking caret now */
+.badge-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: none;              /* caret removed */
+  animation: typing 2s steps(23, end) 0.45s forwards;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* typewriter width */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 23ch; }
+}
+
+/* blinking caret (no longer used, but kept if needed later) */
+@keyframes blinkCaret {
+  0%, 100% { border-color: transparent; }
+  50%      { border-color: var(--text-primary); }
+}
+
+/* ==== LIGHT THEME: section backgrounds (soft teal → warm) ==== */
+body[data-theme="light"] .about,
+body[data-theme="light"] .projects,
+body[data-theme="light"] .skills,
+body[data-theme="light"] .contact {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(45, 212, 191, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(252, 211, 77, 0.18) 0%, transparent 55%),
+    rgba(255, 255, 255, 0.70);
+}
+
+/* (duplicate block you had – left as-is so nothing is removed) */
+body[data-theme="light"] .about,
+body[data-theme="light"] .projects,
+body[data-theme="light"] .skills,
+body[data-theme="light"] .contact {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(45, 212, 191, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(252, 211, 77, 0.18) 0%, transparent 55%),
+    rgba(255, 255, 255, 0.70);
+}
+
+body[data-theme="light"] .about-card p,
+body[data-theme="light"] .project-card p,
+body[data-theme="light"] .skill-category p,
+body[data-theme="light"] .contact-form p {
+  color: #4b5563;  /* neutral dark grey */
+}
+
+/* ===== LIGHT THEME: HERO MAIN CARD SURFACE ===== */
+body[data-theme="light"] .hero-panel {
+  background: linear-gradient(145deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(225, 251, 247, 0.92) 50%,
+    rgba(210, 243, 239, 0.88) 100%
+  );
+  border: 1px solid rgba(45, 212, 191, 0.22);
+  box-shadow:
+    0 18px 42px rgba(15, 118, 110, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  transition: all 0.35s ease;
+}
+
+/* smooth hover micro-lift (premium feel) */
+body[data-theme="light"] .hero-panel:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 50px rgba(15, 118, 110, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+/* ===== LIGHT THEME: Hero badge pill surface ===== */
+body[data-theme="light"] .hero-badge {
+  background: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.10), transparent 55%),
+              rgba(248, 250, 252, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
+}
+
+/* ===== LIGHT THEME: Hero quick-info strip (NOW / LEARNING / OPEN TO) ===== */
+body[data-theme="light"] .hero-stats {
+  background: linear-gradient(145deg,
+    rgba(236, 253, 245, 0.92),
+    rgba(219, 244, 255, 0.95)
+  );
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(16px);
+}
+
+/* small label pills inside (NOW / LEARNING / OPEN TO) */
+body[data-theme="light"] .stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+}

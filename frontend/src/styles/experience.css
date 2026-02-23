@@ -1,0 +1,371 @@
+/* ================= EXPERIENCE SECTION ================= */
+
+.experience {
+  padding: 100px 0;
+}
+
+/* ================= LAYOUT ================= */
+
+.exp-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.exp-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.9s ease;
+}
+
+/* connecting line (unique touch) */
+.exp-shell::before {
+  content: "";
+  position: absolute;
+  left: 400px;
+  top: 140px;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.8s ease;
+}
+
+.exp-visible::before {
+  width: 120px;
+}
+
+/* ================= LEFT SUMMARY ================= */
+
+.exp-list {
+  margin-top: 12px;
+}
+
+.exp-list-card {
+  position: relative;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.exp-list-card.active {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.exp-list-card.active::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 20%;
+  width: 4px;
+  height: 60%;
+  border-radius: 999px;
+  background: var(--gradient-primary);
+}
+
+.exp-list-role {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.exp-list-company {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.exp-list-date {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+.exp-list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.exp-chip {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-secondary);
+}
+
+.exp-chip.primary {
+  background: rgba(79, 70, 229, 0.15);
+  color: var(--primary);
+}
+
+/* ================= RIGHT DETAIL CARD ================= */
+
+.exp-detail-card {
+  position: relative;
+  padding: 42px;
+  border-radius: 26px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.exp-detail-card:hover {
+  transform: translateY(-4px);
+}
+
+/* top gradient strip */
+.exp-detail-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4, #22c55e);
+}
+
+/* hover-follow glow */
+.exp-detail-card::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(79, 70, 229, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.exp-detail-card:hover::after {
+  opacity: 1;
+}
+
+/* ================= TEXT ================= */
+
+.exp-detail-role {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.exp-detail-company {
+  color: var(--primary-light);
+  margin-bottom: 18px;
+}
+
+.exp-detail-intro {
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+/* ================= CONTENT ================= */
+
+.exp-section-title {
+  margin-top: 26px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.exp-detail-list {
+  padding-left: 18px;
+}
+
+.exp-detail-list li {
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ================= TECH ================= */
+
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.exp-tech-pill {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+/* ================= TAGLINE ================= */
+
+.exp-tagline {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+/* ================= STAGGER ANIMATION ================= */
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.exp-visible .stagger > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
+}
+
+.exp-visible .stagger > *:nth-child(1) { transition-delay: 0.1s; }
+.exp-visible .stagger > *:nth-child(2) { transition-delay: 0.2s; }
+.exp-visible .stagger > *:nth-child(3) { transition-delay: 0.3s; }
+.exp-visible .stagger > *:nth-child(4) { transition-delay: 0.4s; }
+.exp-visible .stagger > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .exp-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-shell::before {
+    display: none;
+  }
+}
+/* =========================================================
+   EXPERIENCE – FINAL POLISH (DARK + LIGHT + AI SAFE)
+   Paste at END of experience.css
+   ========================================================= */
+
+/* ---------- Dark theme left card visibility fix ---------- */
+body[data-theme="dark"] .exp-list-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+}
+
+body[data-theme="dark"] .exp-list-card.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(56,189,248,0.55);
+}
+
+/* ---------- Connector line glow (dark only, subtle) ---------- */
+body[data-theme="dark"] .exp-shell::before {
+  box-shadow: 0 0 14px rgba(56,189,248,0.45);
+}
+
+/* ---------- Right card extra depth (dark) ---------- */
+body[data-theme="dark"] .exp-detail-card {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.96),
+    rgba(15, 23, 42, 0.98)
+  );
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.65),
+    inset 0 0 0 1px rgba(148,163,184,0.08);
+}
+
+/* ---------- Top gradient strip a bit stronger ---------- */
+.exp-detail-card::before {
+  height: 5px;
+}
+
+/* ---------- Hover glow discipline ---------- */
+.exp-detail-card::after {
+  filter: blur(2px);
+}
+
+/* ---------- Tech pills polish ---------- */
+.exp-tech-pill {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exp-tech-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(56,189,248,0.35);
+}
+
+/* ---------- Light theme softness retained ---------- */
+body[data-theme="light"] .exp-detail-card {
+  box-shadow:
+    0 22px 46px rgba(15,118,110,0.18),
+    0 0 0 1px rgba(255,255,255,0.75);
+}
+
+/* ---------- AI theme subtle neon ---------- */
+body[data-theme="ai"] .exp-detail-card {
+  box-shadow:
+    0 0 45px rgba(6,182,212,0.45),
+    0 0 0 1px rgba(168,85,247,0.45);
+}
+
+body[data-theme="ai"] .exp-shell::before {
+  box-shadow: 0 0 20px rgba(168,85,247,0.6);
+}
+/* =====================================================
+   EXPERIENCE – FINAL AI THEME TUNING (ONE SHOT FIX)
+   ===================================================== */
+
+/* ---- Section spacing fix (heading breathing room) ---- */
+.experience {
+  padding-top: 120px;
+}
+
+/* ---- AI background glow discipline ---- */
+body[data-theme="ai"] .experience {
+  background:
+    radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.14), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.12), transparent 65%),
+    var(--bg-primary);
+}
+
+/* ---- Left summary card (AI) – clearer, not washed ---- */
+body[data-theme="ai"] .exp-list-card {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow:
+    0 0 22px rgba(168, 85, 247, 0.35);
+}
+
+body[data-theme="ai"] .exp-list-card.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(6, 182, 212, 0.7);
+}
+
+/* ---- Connector line (AI) – controlled neon ---- */
+body[data-theme="ai"] .exp-shell::before {
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.6);
+}
+
+/* ---- Right detail card (AI) – reduce overpower glow ---- */
+body[data-theme="ai"] .exp-detail-card {
+  box-shadow:
+    0 0 38px rgba(6, 182, 212, 0.38),
+    0 0 0 1px rgba(168, 85, 247, 0.5);
+}
+
+/* ---- Hover glow less aggressive ---- */
+body[data-theme="ai"] .exp-detail-card::after {
+  opacity: 0.65;
+  filter: blur(3px);
+}
+
+/* ---- Tech pills (AI) – sharper & readable ---- */
+body[data-theme="ai"] .exp-tech-pill {
+  background: rgba(6, 182, 212, 0.18);
+  border-color: rgba(6, 182, 212, 0.55);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
+}
