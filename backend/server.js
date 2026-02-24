@@ -11,7 +11,11 @@ const PORT = process.env.PORT || 10000;
 /* ================= MIDDLEWARE ================= */
 
 app.use(cors({
- origin: process.env.FRONTEND_URL,
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://your-vercel-url.vercel.app"
+  ],
   credentials: true
 }));
 

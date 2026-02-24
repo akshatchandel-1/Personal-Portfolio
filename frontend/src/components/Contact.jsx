@@ -27,13 +27,18 @@ const Contact = () => {
     try {
       setLoading(true)
 
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      })
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        }
+      )
 
-      if (!res.ok) throw new Error("Failed")
+      const data = await res.json()
+
+      if (!res.ok) throw new Error(data.message || "Failed")
 
       setFormData({
         name: "",
@@ -41,8 +46,11 @@ const Contact = () => {
         subject: "",
         message: ""
       })
+
+      alert("Message sent successfully ✅")
     } catch (err) {
       console.error("Mail error:", err)
+      alert("Failed to send message ❌")
     } finally {
       setLoading(false)
     }
