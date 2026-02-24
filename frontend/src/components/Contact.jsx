@@ -28,7 +28,7 @@ const Contact = () => {
       setLoading(true)
 
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
+        "https://personal-portfolio-r6a3.onrender.com/api/contact",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

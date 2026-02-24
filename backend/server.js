@@ -10,14 +10,16 @@ const PORT = process.env.PORT || 10000;
 
 /* ================= MIDDLEWARE ================= */
 
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://your-vercel-url.vercel.app"
-  ],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://personal-portfolio-orcin-nine-52.vercel.app"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+  })
+)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
