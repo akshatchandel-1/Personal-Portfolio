@@ -27,14 +27,11 @@ const Contact = () => {
     try {
       setLoading(true)
 
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
-        }
-      )
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
 
       if (!res.ok) throw new Error("Failed")
 
@@ -73,7 +70,7 @@ const Contact = () => {
                 />
               </div>
 
-              <h3>Akshat <Singh></Singh></h3>
+              <h3>Akshat Singh</h3>
               <p className="contact-role">Full Stack Developer</p>
             </div>
 
@@ -139,7 +136,7 @@ const Contact = () => {
               </a>
 
               <a
-                href="https://instagram.com/akshat_singh/"
+                href="https://instagram.com/akshatsingh"
                 target="_blank"
                 rel="noreferrer"
                 className="profile-social"
@@ -175,7 +172,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="vishuthakur8081@gmail.com"
+                  placeholder="you@example.com"
                 />
               </div>
             </div>
