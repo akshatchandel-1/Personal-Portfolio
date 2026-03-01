@@ -66,7 +66,7 @@ const Skills = () => {
       title: "Data Science",
       provider: "Indian Institute of Technology Delhi",
       year: "2024",
-      link: "https://media.licdn.com/dms/image/v2/D562DAQFqBn-2TgveLA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1729518811570?e=1771844400&v=beta&t=1E5L4Ow95hQSdWAJ30BBM3k6Ja50Z2C-z9O5ifZJWlM"
+      link: "https://media.licdn.com/dms/image/v2/D562DAQFqBn-2TgveLA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1729518811570?e=1772953200&v=beta&t=8jJorukkvq7e1n808HHQzJ1Q1hHoNxzD2QGDOLxwvZQ"
     },
     {
       title: "Data Analytics Job Simulation",
